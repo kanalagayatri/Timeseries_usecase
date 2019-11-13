@@ -26,7 +26,7 @@ import sys
 
 
 
-df = pd.read_csv('D:\\Usecase\\trends1.csv')
+df = pd.read_csv('\\trends1.csv')
 df.columns = ['Sno', 'top1', 'top2', 'top3', 'date']
 df['date'] = pd.to_datetime(df['date'])
 df = df.set_index('date')
@@ -122,7 +122,7 @@ def ts_diagnostics(y, lags=None, title='', filename=''):
     y.plot(ax=hist_ax, kind='hist', bins=25);
     hist_ax.set_title('Histogram');
     plt.tight_layout();
-    plt.savefig('D:/Usecase/{}.png'.format(filename))
+    plt.savefig('Filepath/{}.png'.format(filename))
     plt.show()
     
     # perform Augmented Dickey Fuller test
@@ -255,8 +255,8 @@ transformed, lam = boxcox(X)
 model = ARIMA(transformed, order=(0,1,1))
 model_fit = model.fit(disp=0)
 # save model
-model_fit.save('D:\Usecase\model_top3.pkl')
-np.save('D:\Usecase\model_lambda_top3.npy', [lam])
+model_fit.save('\model_top3.pkl')
+np.save('\model_lambda_top3.npy', [lam])
 
 '''
 Model validation
@@ -273,8 +273,8 @@ history = [x for x in X]
 validation = validation.top3
 y = validation.values.astype('float32')
 # load model
-model_fit = ARIMAResults.load('D:\Usecase\model_top3.pkl')
-lam = np.load('D:\Usecase\model_lambda_top3.npy')
+model_fit = ARIMAResults.load('\model_top3.pkl')
+lam = np.load('\model_lambda_top3.npy')
 # make first prediction
 predictions = list()
 yhat = model_fit.forecast()[0]
@@ -306,7 +306,7 @@ rmse = sqrt(mse)
 print('RMSE: %.3f' % rmse)
 plt.plot(y)
 plt.plot(predictions, color='red')
-plt.savefig('D:/Usecase/{}.png'.format("TOP3validation"))
+plt.savefig('Filepath/{}.png'.format("TOP3validation"))
 plt.show()
 
 
