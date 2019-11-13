@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 
 
-df = pd.read_csv('D:\\Usecase\\trends1.csv')
+df = pd.read_csv('\\trends1.csv')
 df.head()
 df.info()
 df.date = pd.to_datetime(df.date)
@@ -25,7 +25,7 @@ df.head()
 df.plot(figsize=(20,10), linewidth=5, fontsize=20)
 plt.xlabel('Year', fontsize=20);
 plt.ylabel('Tops', fontsize = 20)    
-plt.savefig("D:\\Usecase\\Inputdata.png")      
+plt.savefig("\\Inputdata.png")      
 df.corr()
 
 #individual plots
@@ -82,7 +82,7 @@ plt.plot(ts_log_diff)
 
 
 
-df = pd.read_csv('D:\\Usecase\\trends1.csv')
+df = pd.read_csv('\\trends1.csv')
 df.head()
 df.info()
 df.date = pd.to_datetime(df.date)
